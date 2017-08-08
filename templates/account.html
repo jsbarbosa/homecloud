@@ -1,0 +1,38 @@
+{% include 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <title> HomeCloud </title>
+{% endblock %}
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Welcome {{user.username}} </h1>
+
+            <form action="{% url 'services:account' %}" method="post">
+                {% csrf_token %}
+
+                <label for="password">Current password:</label>
+                <input type="password" name="password">
+
+                <br>
+                <br>
+
+                <label for="password_n">New password:</label>
+                <input type="password" name="password_n">
+
+                <br>
+                <br>
+
+                <label for="password_nconf">Confirm new password:</label>
+                <input type="password" name="password_nconf">
+
+                <br>
+                <br>
+
+                <input type="submit" class="btn btn-primary" value="Save">
+            </form>
+        </div>
+    </div>
+</body>

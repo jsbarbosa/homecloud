@@ -1,0 +1,22 @@
+{% extends 'file_base.html' %}
+
+{% load table_tags %}
+
+{% block body %}
+    <h1>Welcome {{user.username}}</h1>
+    <nav class="navbar navbar-default navbar-right" role="banner" style="margin-bottom:0">
+        <ul class = "nav navbar-nav">
+            <li><a href="{% url 'services:upload_file' %}" class = "navbar-link">Upload</a></li>
+            <li><a href="{% url 'admin:index' %}" class = "navbar-link">Delete</a></li>
+        </ul>
+    </nav>
+
+    {% render_table table %}
+    <!-- <ul>
+        {% for file in user.profile.files %}
+            <li>{{file}}</li>
+        {% endfor %}
+    </ul> -->
+
+
+{% endblock %}
